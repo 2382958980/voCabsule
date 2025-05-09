@@ -9,6 +9,9 @@ from UIstyle import UIStyleManager
 from dragHandler import WindowDragHandler
 from animator import WindowAnimator
 
+from dotenv import load_dotenv
+load_dotenv()
+
 class CapsuleWindow(QWidget):
     def __init__(self):
         super().__init__()

@@ -1,2 +1,2 @@
-# vocabsule
+## 翻译悬浮球voCabsule
 一个轻量化、现代化的翻译悬浮球

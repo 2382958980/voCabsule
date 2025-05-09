@@ -1,15 +1,21 @@
+import os
 import random
 import hashlib
 import requests
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
+from dotenv import load_dotenv
 
 class TranslationService:
     def __init__(self):
         # 百度翻译API参数
-        self.app_id = "20250304002292540"
-        self.app_key = "klBT1DTRV7GqqIC1n51H"
+        load_dotenv()
+        self.app_id = os.getenv("BAIDU_APP_ID")
+        self.app_key = os.getenv("BAIDU_APP_KEY")
         self.base_url = "https://fanyi-api.baidu.com/api/trans/vip/translate"
-    
+
+        if not self.app_id or not self.app_key:
+            raise ValueError("百度翻译 API 密钥未配置")
+        
     def translate(self, text):
         """调用百度翻译API进行翻译"""
         if not text.strip():
